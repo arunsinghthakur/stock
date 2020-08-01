@@ -16,4 +16,6 @@ public class BookQueryResolver implements GraphQLQueryResolver {
     public List<Book> allBooks() {
         return bookService.getAllBooks();
     }
+
+    public Book getBookById(String isbn) {return bookService.getBookById(isbn);}
 }

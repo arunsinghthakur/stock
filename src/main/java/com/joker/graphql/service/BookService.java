@@ -7,14 +7,16 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
-    public Book addBook(String isbn, String name, String author) {
-        return bookRepository.save(new Book(isbn, name, author));
+    public Book addBook(Book book) {
+        return bookRepository.save(book);
     }
 
     public List<Book> getAllBooks() {
@@ -23,6 +25,10 @@ public class BookService {
 
     @PostConstruct
     public void dummyRecords() {
-        bookRepository.save(new Book("1233","JAVA","Gosling"));
+        bookRepository.save(new Book(UUID.randomUUID().toString(),"1", "JAVA", "Gosling"));
+    }
+
+    public Book getBookById(String id) {
+        return bookRepository.findById(id).get();
     }
 }

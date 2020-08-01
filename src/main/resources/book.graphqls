@@ -1,15 +1,25 @@
+type Query {
+    allBooks: [Book]
+    getBookById(uuid: String): Book
+}
+
+type Mutation {
+    addBook(book: BookInput): Book
+}
+
 type Book {
+    uuid: String!
     isbn: String!
     name: String!
     author: String!
 }
 
-type Query {
-    allBooks: [Book]
+input BookInput {
+    isbn: String!
+    name: String!
+    author: String!
 }
 
-type Mutation {
-    addBook(isbn: String!, name: String!, author: String): Book!
-}
+
 
 
