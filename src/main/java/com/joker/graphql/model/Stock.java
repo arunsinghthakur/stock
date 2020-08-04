@@ -13,11 +13,11 @@ import javax.persistence.Table;
 @Setter
 @Getter
 @Builder
-public class Book {
+public class Stock {
     @Id
     private String uuid;
-    private String isbn;
-    private String name;
-    private String author;
+    private String stockCode;
+    private String companyName;
+    private String stockExchange;
 
 }

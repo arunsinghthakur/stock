@@ -5,12 +5,12 @@ schema {
 }
 
 type Query {
-    allBooks: [Book]
-    getBookById(uuid: String): Book
+    findAllStocks: [Stock]
+    findStockByStockCode(stockCode: String): Stock
 }
 
 type Mutation {
-    addBook(book: BookInput): Book
+    addStock(stock: StockInput): Stock
 }
 
 type Subscription {
@@ -24,17 +24,17 @@ type StockPriceUpdate {
     stockPriceChange : Float
 }
 
-type Book {
+type Stock {
     uuid: String!
-    isbn: String!
-    name: String!
-    author: String!
+    stockCode: String!
+    companyName: String!
+    stockExchange: String!
 }
 
-input BookInput {
-    isbn: String!
-    name: String!
-    author: String!
+input StockInput {
+    stockCode: String!
+    companyName: String!
+    stockExchange: String!
 }
 
 
