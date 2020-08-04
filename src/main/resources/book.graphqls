@@ -1,3 +1,9 @@
+schema {
+    query: Query
+    mutation: Mutation
+    subscription : Subscription
+}
+
 type Query {
     allBooks: [Book]
     getBookById(uuid: String): Book
@@ -5,6 +11,17 @@ type Query {
 
 type Mutation {
     addBook(book: BookInput): Book
+}
+
+type Subscription {
+    stockQuotes: StockPriceUpdate!
+}
+
+type StockPriceUpdate {
+    dateTime : String
+    stockCode : String
+    stockPrice : Float
+    stockPriceChange : Float
 }
 
 type Book {
