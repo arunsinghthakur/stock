@@ -1,5 +1,6 @@
-package com.joker.graphql.model;
+package com.joker.stock.dto;
 
+import com.joker.stock.entity.Stock;
 import lombok.*;
 
 import java.util.UUID;
@@ -9,14 +10,15 @@ import java.util.UUID;
 @Setter
 @Getter
 @Builder
-public class StockInput {
+public class UpdateStock {
+    private String uuid;
     private String stockCode;
     private String companyName;
     private String stockExchange;
 
     public Stock toStock() {
         return Stock.builder()
-                .uuid(UUID.randomUUID().toString())
+                .uuid(this.uuid)
                 .stockCode(this.stockCode)
                 .stockExchange(this.stockExchange)
                 .companyName(this.companyName)

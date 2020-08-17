@@ -1,4 +1,4 @@
-package com.joker.graphql;
+package com.joker.stock;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

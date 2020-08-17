@@ -1,42 +1,45 @@
 schema {
     query: Query
     mutation: Mutation
-    subscription : Subscription
 }
 
 type Query {
-    findAllStocks: [Stock]
-    findStockByStockCode(stockCode: String): Stock
+    findAllStocks: [StockDto]
+    getStock(getStock: GetStock): StockDto
 }
 
 type Mutation {
-    addStock(stock: StockInput): Stock
+    addStock(createStock: CreateStock): StockDto
+    updateStock(updateStock: UpdateStock): StockDto
+    deleteStock(deleteStock: DeleteStock): String
 }
 
-type Subscription {
-    stockQuotes: StockPriceUpdate!
-}
-
-type StockPriceUpdate {
-    dateTime : String
-    stockCode : String
-    stockPrice : Float
-    stockPriceChange : Float
-}
-
-type Stock {
+type StockDto {
     uuid: String!
     stockCode: String!
     companyName: String!
     stockExchange: String!
 }
 
-input StockInput {
+input CreateStock {
     stockCode: String!
     companyName: String!
     stockExchange: String!
 }
 
+input UpdateStock {
+    uuid: String !
+    stockCode: String!
+    companyName: String!
+    stockExchange: String!
+}
 
+input GetStock {
+    stockCode: String!
+}
+
+input DeleteStock {
+    stockCode: String!
+}
 
 

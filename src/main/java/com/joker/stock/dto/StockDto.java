@@ -1,23 +1,15 @@
-package com.joker.graphql.model;
+package com.joker.stock.dto;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
 @Getter
 @Builder
-public class Stock {
-    @Id
+public class StockDto {
     private String uuid;
     private String stockCode;
     private String companyName;
     private String stockExchange;
-
 }

@@ -1,6 +1,6 @@
-package com.joker.graphql.repository;
+package com.joker.stock.repository;
 
-import com.joker.graphql.model.Stock;
+import com.joker.stock.entity.Stock;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
