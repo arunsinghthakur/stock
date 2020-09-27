@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "7714d7c2-21f0-429e-b843-141d117283ba",
+		"name": "stock-gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllStockPrices",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query findAllStocks {\r\n    findAllStocks {\r\n        uuid\r\n        stockCode\r\n        companyName\r\n        stockExchange\r\n        stockPrice {\r\n            stockCode\r\n            oldPrice\r\n            newPrice\r\n        }\r\n    }\r\n}",
+						"variables": ""
+					},
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{stock-gateway-url}}",
+					"host": [
+						"{{stock-gateway-url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

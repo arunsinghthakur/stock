@@ -1,0 +1,49 @@
+{
+	"info": {
+		"_postman_id": "a2b2eec8-a7af-45f1-8d33-c21cbe623de7",
+		"name": "stock-update",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "getStockPrice",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query getStockPrice ($stockCode: String!) {\n    getStockPrice (stockCode: $stockCode) {\n        stockCode\n        oldPrice\n        newPrice\n    }\n}",
+								"variables": "{\n  \"stockCode\": \"test\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{stock-update}}",
+							"host": [
+								"{{stock-update}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "url",
+			"key": "url",
+			"value": "",
+			"type": "any",
+			"description": {
+				"content": "URL for the request.",
+				"type": "text/plain"
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
