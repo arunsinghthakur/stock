@@ -107,7 +107,34 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query getStock ($getStock: GetStock) {\n    getStock (getStock: $getStock) {\n        uuid\n        stockCode\n        companyName\n        stockExchange\n    }\n}",
-								"variables": "{\n  \"getStock\": {\n    \"stockCode\": \"GOOG\"\n  }\n}"
+								"variables": "{\n  \"getStock\": {\n    \"stockCode\": \"FB\"\n  }\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "subscriptions",
+			"item": [
+				{
+					"name": "stockQuotes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "subscription stockQuotes {\n    stockQuotes {\n        dateTime\n        stockCode\n        stockPrice\n        stockPriceChange\n    }\n}",
+								"variables": "{}"
 							}
 						},
 						"url": {
